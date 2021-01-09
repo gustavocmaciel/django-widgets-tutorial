@@ -1,11 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-# Import forms
 from django import forms
 from django.forms import ModelForm, TextInput, EmailInput 
 
-# Import the User model
 from .models import User
 
 # Form to get the user info
