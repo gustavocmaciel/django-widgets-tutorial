@@ -5,7 +5,7 @@ from django.forms import ModelForm, TextInput, EmailInput
 
 from .models import User
 
-# Form to get the user info
+
 class UserInfoForm(ModelForm):
     class Meta:
         model = User
@@ -23,10 +23,9 @@ class UserInfoForm(ModelForm):
                 })
         }
 
-# Create your views here.
 
 def index(request):
-    if request.method == "GET":
-        return render(request, "app/index.html", {
-                "form": UserInfoForm,
-            })
+    return render(request, "app/index.html", {
+        "form": UserInfoForm,
+    })
+
