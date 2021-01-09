@@ -6,11 +6,24 @@ from django import forms
 from django.forms import ModelForm, TextInput, EmailInput 
 
 # Import the User model
-##from .models import User
+from .models import User
 
-class UserInfoForm(forms.Form):
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Name', 'style': 'width: 300px;', 'class': 'form-control'}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder' :'Email', 'style': 'width: 300px;', 'class': 'form-control'}))
+class UserInfoForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['name', 'email']
+        widgets = {
+            'name': TextInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': 'Name'
+                }),
+            'email': EmailInput(attrs={
+                'class': "form-control", 
+                'style': 'max-width: 300px;',
+                'placeholder': 'Email'
+                })
+        }
 
 # Create your views here.
 
